@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root {
+  scroll-behavior: smooth;
+}
+/* Put custom classes inside a layer */
+@layer components {
+  .input-field {
+    @apply mt-1 w-full rounded-lg border px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  }
+}
