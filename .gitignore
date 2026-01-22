@@ -22,8 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-# Ignore everything in images
-src/images/*
 
-# But allow the placeholder image to remain in the repo
-!src/images/placeholder.jpg
+
