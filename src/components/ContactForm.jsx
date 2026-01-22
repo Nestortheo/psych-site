@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function ContactForm() {
+export default function ContactForm({compact=false}) {
 
     const [status, setStatus] = useState({ type: "", message: "" });
     const [isLoading, setIsLoading] = useState(false);
@@ -80,97 +80,112 @@ export default function ContactForm() {
         
     };
 
-    
-
-
     return (
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5">
+            <div className="grid gap-4">
+            {/* 🕵️ Honeypot field */}
+            <div
+                className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0 pointer-events-none"
+                aria-hidden="true"
+            >
+                <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={handleChange}
+                autoComplete="off"
+                tabIndex={-1}
+                className="hidden"
+                />
+            </div>
 
-        {/* 🕵️ Honeypot field */}
-        <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
-            <input
-            type="text"
-            name="website"            // misleading, harmless
-            value={form.website}
-            onChange={handleChange}
-            autoComplete="off"
-            tabIndex={-1}
-            />
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
             <div>
-            <label className="block text-sm font-medium">Όνομα *</label>
-            <input
+                <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
+                Όνομα *
+                </label>
+                <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className="input-field"
-            />
+                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                />
             </div>
 
             <div>
-            <label className="block text-sm font-medium">Επώνυμο *</label>
-            <input
+                <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
+                Επώνυμο *
+                </label>
+                <input
                 type="text"
                 name="last_name"
                 value={form.last_name}
                 onChange={handleChange}
-                className="input-field"
-            />
-            </div>
-        </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-                <label className="block text-sm font-medium">Email*</label>
-                <input
-                    type = "email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="input-field"
+                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
+
             <div>
-                <label className="block text-sm font-medium">Τηλέφωνο</label>
+                <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
+                Email *
+                </label>
                 <input
-                    type="text" 
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="input-field"
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
+
+            <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
+                Τηλέφωνο
+                </label>
+                <input
+                type="text"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                />
             </div>
 
-        <div>
-            <label className="block text-sm font-medium">Μήνυμα *</label>
-            <textarea 
-                rows={6} 
+            <div>
+                <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
+                Μήνυμα *
+                </label>
+                <textarea
+                rows={6}
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                className="input-field"
-            />
-        </div>
-        
-        <button
-            type="submit"
-            disabled={isLoading}
-            className="rounded-lg bg-slate-900 text-white px-5 py-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                />
+            </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+            <button
+                type="submit"
+                disabled={isLoading}
+                className="rounded-xl bg-[#1f2937] text-white px-5 py-2.5 text-sm font-medium
+                        disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#111827]"
             >
-            {isLoading ? "Αποστολή..." : "Αποστολή"}
-        </button>
-        {status.message && (
-            <p
+                {isLoading ? "Αποστολή..." : "Αποστολή"}
+            </button>
+
+            {status.message && (
+                <p
                 className={`text-sm ${
-                status.type === "success" ? "text-green-600" : "text-red-600"
+                    status.type === "success" ? "text-green-700" : "text-red-700"
                 }`}
-            >
+                >
                 {status.message}
-            </p>
-        )}
+                </p>
+            )}
+            </div>
         </form>
+        
     );
 }
