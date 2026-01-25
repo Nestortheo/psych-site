@@ -162,11 +162,12 @@ export default function Home() {
             <p className="mx-auto mt-4 mb-10 max-w-2xl text-center text-slate-600 leading-relaxed">
               Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((s) => (
-                <ServiceCard key={s.title} title={s.title} text={s.text} />
-              ))}
+            <div className="mx-auto max-w-3xl">
+              <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
+                {services.map((s) => (
+                  <ServiceCard key={s.title} title={s.title} text={s.text} className="bg-[#fbfbfa] border-[#dcdcd7] pl-6 relative" />
+                ))}
+              </div>
             </div>
           </div>
         </div>
