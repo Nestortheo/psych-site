@@ -9,7 +9,7 @@ export default function ContactSection() {
       {/* Header + Details (always visible) */}
       <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
         <div>
-          <h3 className="text-xl font-semibold text-slate-900">
+          <h3 className="text-4xl font-semibold text-slate-900">
             Επικοινωνία
           </h3>
           <p className="mt-2 text-sm text-slate-700 leading-relaxed">

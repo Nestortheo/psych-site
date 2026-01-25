@@ -57,15 +57,15 @@ export default function Home() {
           <div className="grid items-center gap-12 md:gap-16 md:grid-cols-2">
             {/* Text */}
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink">
                 Δημήτρης Μιχούδης
               </h1>
 
-              <p className="mt-3 text-base md:text-lg text-slate-600">
+              <p className="mt-3 text-base md:text-lg text-ink-soft">
                 Ψυχολόγος • Συμβουλευτική Ψυχολογία • Θεσσαλονίκη & Online
               </p>
 
-              <div className="mt-8 space-y-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto md:mx-0">
+              <div className="mt-8 space-y-6 text-lg md:text-xl text-ink-soft leading-relaxed max-w-3xl mx-auto md:mx-0">
                 <p>
                   Ονομάζομαι Δημήτρης Μιχούδης και είμαι ψυχολόγος. Σπούδασα Ψυχολογία στο
                   University of Sheffield, City College στη Θεσσαλονίκη και στη συνέχεια ολοκλήρωσα
@@ -77,7 +77,7 @@ export default function Home() {
                   εκφράσει ελεύθερα τις σκέψεις και τα συναισθήματά του, χωρίς φόβο για κριτική.
                 </p>
 
-                <p className="italic text-slate-700">
+                <p className="italic text-ink-strong">
                   Κάθε συνεδρία προσαρμόζεται στις ανάγκες του ανθρώπου απέναντί μου, με σεβασμό, εμπιστοσύνη
                   και σταθερότητα.
                 </p>
@@ -127,12 +127,12 @@ export default function Home() {
       {/* ABOUT (panel) */}
       <section id="about" className="scroll-mt-24 py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-[#fbfbfa] ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
+          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900">Σχετικά</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-ink">Σχετικά</h2>
               <div className="h-1 w-16 bg-[#2f3e34]/70 mx-auto my-8 rounded-full" />
 
-              <div className="space-y-6 text-slate-700 leading-relaxed text-lg">
+              <div className="space-y-6 text-ink-soft leading-relaxed text-lg">
                 <p>
                   Η ακαδημαϊκή μου εκπαίδευση με εφοδίασε με στέρεες θεωρητικές βάσεις, αλλά και ουσιαστικές
                   δεξιότητες στην πρακτική εφαρμογή της ψυχολογικής γνώσης.
@@ -144,7 +144,7 @@ export default function Home() {
                   προσαρμογή σε νέες ή απαιτητικές συνθήκες ζωής.
                 </p>
 
-                <p className="italic text-slate-800 font-medium">
+                <p className="italic text-ink-strong font-medium">
                   Η φιλοσοφία μου βασίζεται στην πεποίθηση ότι μέσα από τη θεραπευτική διαδικασία μπορούμε να
                   αναδείξουμε τις εσωτερικές μας δυνάμεις και να οικοδομήσουμε μια πιο ισορροπημένη καθημερινότητα.
                 </p>
@@ -157,9 +157,9 @@ export default function Home() {
       {/* SERVICES (panel + gentle intro) */}
       <section id="services" className="scroll-mt-24 py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-[#fbfbfa] ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
+          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
             <h2 className="text-3xl md:text-4xl font-semibold text-center">Υπηρεσίες</h2>
-            <p className="mx-auto mt-4 mb-10 max-w-2xl text-center text-slate-600 leading-relaxed">
+            <p className="mx-auto mt-4 mb-10 max-w-2xl text-center text-ink leading-relaxed">
               Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
             </p>
             <div className="mx-auto max-w-3xl">
@@ -176,7 +176,7 @@ export default function Home() {
       {/* OFFICE (panel + gallery) */}
       <section id="office" className="scroll-mt-24 py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-[#fbfbfa] ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
+          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ο χώρος μου</h2>
             <p className="text-slate-600 max-w-2xl leading-relaxed mb-10">
               Ένας χώρος σχεδιασμένος ώστε να προσφέρει ηρεμία, άνεση και αίσθηση ασφάλειας.
@@ -190,14 +190,7 @@ export default function Home() {
       {/* CONTACT (panel + form) */}
       <section id="contact" className="scroll-mt-24 py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-[#fbfbfa] ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center">Επικοινωνία</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 leading-relaxed">
-              Αν νιώθετε ότι θα θέλατε να μιλήσουμε, μπορείτε να επικοινωνήσετε μαζί μου ή να συμπληρώσετε τη φόρμα.
-            </p>
-
             <ContactSection />
-          </div>
         </div>
       </section>
     </main>

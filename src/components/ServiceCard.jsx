@@ -12,8 +12,8 @@ export default function ServiceCard({ title, text, className = "" }) {
       ].join(" ")}
     >
       <span className="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-slate-900/10" />
-      <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
-      <p className="text-slate-700 text-sm leading-6">{text}</p>
+      <h3 className="text-lg font-semibold text-ink mb-2">{title}</h3>
+      <p className="text-ink-strong text-sm leading-6">{text}</p>
     </div>
   );
 }
