@@ -36,7 +36,7 @@ export default function Home() {
       {/* TOP PHOTO BANNER */}
       <section aria-label="Office banner" className="relative -mt-20">
         <div className="
-          relative overflow-hidden bg-black
+          relative overflow-hidden bg-surfaceDark
           h-[42vh] min-h-[280px] max-h-[520px]
           sm:h-[52vh] sm:min-h-[360px] sm:max-h-[600px]
           md:h-[60vh] md:min-h-[420px] md:max-h-[680px]">
