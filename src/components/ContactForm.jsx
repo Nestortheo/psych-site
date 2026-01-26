@@ -178,7 +178,7 @@ export default function ContactForm({compact=false}) {
             {status.message && (
                 <p
                 className={`text-sm ${
-                    status.type === "success" ? "text-green-700" : "text-red-700"
+                    status.type === "success" ? "text-ink-soft" : "text-red-700"
                 }`}
                 >
                 {status.message}
