@@ -123,7 +123,7 @@ export default function Home() {
 
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center rounded-xl border border-black/50 px-5 py-3 text-sm font-medium text-ink hover:bg-white/60"
+                  className="inline-flex items-center justify-center rounded-xl border border-black/20 px-5 py-3 text-sm font-medium text-ink hover:bg-white/60"
                 >
                   Υπηρεσίες
                 </a>
@@ -158,14 +158,14 @@ export default function Home() {
       <section id="services" className={section}>
         <div className={container}>
           <div className={panel}>
-            <h2 className="text-3xl md:text-4xl font-semibold text-center text-ink">Υπηρεσίες</h2>
-            <div className="h-1 w-16 bg-ink/30 mx-auto my-8 rounded-full" />
+            <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες</h2>
+            <div className="h-1 w-16 bg-ink/30  my-8 rounded-full" />
 
-            <p className="mx-auto -mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
+            <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
               Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
             </p>
 
-            <div className="mx-auto max-w-3xl">
+            <div className="max-w-3xl">
               <div className="grid gap-6">
                 {services.map((s) => (
                   <ServiceCard

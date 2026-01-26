@@ -43,14 +43,14 @@ export default function ContactSection() {
         <div className="flex flex-col gap-3 md:items-end">
           <a
             href="tel:2311829090"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-ink px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
+            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-black/20 px-4 py-2.5 text-sm font-medium text-ink hover:bg-white/60"
           >
             Call
           </a>
 
           <a
             href="mailto:dimitrismichoudis@gmail.com"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-ink px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
+            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-black/20 px-4 py-2.5 text-sm font-medium text-ink hover:bg-white/60"
           >
             Email
           </a>
