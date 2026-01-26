@@ -6,6 +6,7 @@ import office2 from "../images/IMG_9080.jpeg";
 import office3 from "../images/IMG_9081.jpeg";
 import office4 from "../images/IMG_9084.jpeg";
 import office5 from "../images/IMG_9085.jpeg";
+import office6 from "../images/IMG_9092.jpeg"
 
 
 import ServiceCard from "../components/ServiceCard";
@@ -20,6 +21,7 @@ export default function Home() {
     { src: office3, alt: "Couch and calm lighting" },
     { src: office4, alt: "Decor details in the office" },
     { src: office5, alt: "Therapy room seating and plants" },
+    { src : office6, alt: "Therapy office"},
   ];
 
   // Reusable class strings 
@@ -189,7 +191,7 @@ export default function Home() {
             <div className="h-1 w-16 bg-ink/30 my-8 rounded-full" />
 
             <p className="-mt-2 text-ink-soft max-w-2xl leading-relaxed mb-10">
-              Ένας χώρος σχεδιασμένος ώστε να προσφέρει ηρεμία, άνεση και αίσθηση ασφάλειας.
+              Ο χώρος όπου πραγματοποιούνται οι συνεδρίες.
             </p>
 
             <OfficeGallery photos={officePhotos} />
