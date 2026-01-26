@@ -23,4 +23,10 @@
   --color-ink: oklch(28% 0 0);
   --color-ink-soft: oklch(35% 0 0);
   --color-ink-strong: oklch(10% 0 0);
+
+   /* footer */
+  --color-footer-bg: oklch(35% 0 0);
+  --color-footer-ink: oklch(92% 0 0);
+  --color-footer-ink-soft: oklch(80% 0 0);
+  --color-footer-ink-muted: oklch(68% 0 0);
 }

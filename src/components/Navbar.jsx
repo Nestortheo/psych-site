@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const base   = "px-3 py-2 rounded-md text-sm font-medium";
-  const link   = base + " text-slate-700 hover:text-slate-900 hover:bg-slate-100";
-  const cta    = "px-4 py-2 rounded-lg bg-slate-900 text-white text-sm hover:bg-slate-800";
+  const base   = "px-3 py-2 rounded-md text-md font-medium";
+  const link   = base + " text-ink-soft hover:text-ink ";
+  const cta    = "px-4 py-2 rounded-lg bg-ink-strong text-white text-sm hover:opacity-90";
 
 
   // auto-close menu when resizing to md+
@@ -17,31 +17,46 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/35 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-surface/45 backdrop-blur-md border-b border-surface/10 shadow-sm">
       <nav aria-label="Primary" className="max-w-7xl mx-auto px-4">
         <div className="h-20 flex items-center justify-between">
-          {/* Brand */}
+          {/* Brand (we dont have a brand img yet)*/}
           <a href="/" className={`flex items-center gap-2 `}>
-            <span className="inline-block h-12 w-12 rounded-full bg-slate-900" aria-hidden="true" />
-            <span className="text-lg font-semibold tracking-tight">Δημήτρης Μιχούδης</span>
+            <span
+              className="hidden h-12 w-12 rounded-full bg-slate-900"
+              aria-hidden="true"
+            />
+            <span className="text-lg md:text-xl font-medium tracking-tight">
+  Δημήτρης Μιχούδης
+</span>
           </a>
 
            {/* Desktop links */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="/#about" className="text-slate-700 hover:text-slate-900 px-4 py-2 rounded-md text-base font-medium">
+            <a href="/#about" className="text-ink-soft hover:text-ink px-4 py-2 text-base font-medium transition-colors">
               About
             </a>
-            <a href="/#services" className="text-slate-700 hover:text-slate-900 px-4 py-2 rounded-md text-base font-medium">
+
+            <a href="/#services" className="text-ink-soft hover:text-ink px-4 py-2 text-base font-medium transition-colors">
               Services
             </a>
-            <a href="/#contact" className="px-5 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-800">
+
+            <a href="/#contact" className="inline-flex items-center justify-center
+                                      rounded-xl
+                                      bg-ink-strong
+                                      px-5 py-2.5
+                                      text-sm font-medium text-white
+                                      shadow-sm
+                                      hover:opacity-90
+                                      transition-opacity
+                                      focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20">
               Contact
             </a>
           </div>
 
           {/* Burger (mobile) */}
           <button
-            className="md:hidden text-3xl text-slate-700 hover:text-slate-900 p-1.5 rounded-md border border-slate-300/70 bg-white/70"
+            className="md:hidden text-3xl text-ink hover:text-ink-strong p-1.5 rounded-md border border-ink bg-surface/10"
             onClick={() => setOpen(o => !o)}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -53,7 +68,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         <div id="mobile-menu" className={`md:hidden ${open ? "block" : "hidden"}`}>
-          <div className="py-4 px-6 flex flex-col items-center gap-3 bg-white/95 backdrop-blur text-slate-700 shadow-md border-t border-slate-200">
+          <div className="py-4 px-6 flex flex-col items-center gap-3 bg-surface/10 backdrop-blur shadow-md border-t border-slate-200">
             <a href="/#about"    className={`${link}`} onClick={() => setOpen(false)}>About</a>
             <a href="/#services" className={`${link}`} onClick={() => setOpen(false)}>Services</a>
             <a href="/#contact"  className={`${cta}`}  onClick={() => setOpen(false)}>Contact</a>

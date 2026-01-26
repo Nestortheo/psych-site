@@ -7,7 +7,7 @@ import office3 from "../images/IMG_9081.jpeg";
 import office4 from "../images/IMG_9084.jpeg";
 import office5 from "../images/IMG_9085.jpeg";
 
-import ContactForm from "../components/ContactForm";
+
 import ServiceCard from "../components/ServiceCard";
 import OfficeGallery from "../components/OfficeGallery";
 import ContactSection from "../components/ContactSection";
@@ -22,11 +22,18 @@ export default function Home() {
     { src: office5, alt: "Therapy room seating and plants" },
   ];
 
+  // Reusable class strings 
+  const section = "scroll-mt-24 py-20 md:py-24";
+  const container = "max-w-7xl mx-auto px-6";
+  const panel =
+    "rounded-3xl bg-surface/55 ring-1 ring-black/10 px-6 py-14 md:px-12 md:py-16";
+  const divider = "h-1 w-16 bg-ink/30 mx-auto my-8 rounded-full";
+
   return (
-    <main id="content" className="text-slate-800">
+    <main id="content" className="text-ink">
       {/* TOP PHOTO BANNER */}
       <section aria-label="Office banner" className="relative -mt-20">
-        <div className="h-[520px] w-full overflow-hidden relative">
+        <div className="relative h-[520px] w-full overflow-hidden">
           <img
             src={bannerPhoto}
             alt="The office space"
@@ -40,11 +47,8 @@ export default function Home() {
           {/* very light darken for readability */}
           <div className="absolute inset-0 bg-black/10" />
 
-          {/* fade into page background (greige system) */}
-          <div
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t
-                       from-[#f6f6f4] via-[#f6f6f4]/50 to-transparent"
-          />
+          {/* fade into page background (use token) */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
         </div>
 
         {/* soft overlay to blend with navbar */}
@@ -52,8 +56,8 @@ export default function Home() {
       </section>
 
       {/* HERO */}
-      <section id="hero" className="scroll-mt-24 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="hero" className={section}>
+        <div className={container}>
           <div className="grid items-center gap-12 md:gap-16 md:grid-cols-2">
             {/* Text */}
             <div className="text-center md:text-left">
@@ -83,18 +87,43 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* anchor where you want the page to land */}
+              <span id="about" className="block scroll-mt-28" aria-hidden="true" />
+              {/* new About */}
+              <div className="mt-10 rounded-2xl bg-surface/75 ring-1 ring-black/5 p-5 md:p-6">
+               <h2 className="text-md font-medium uppercase tracking-wide text-ink-soft">Σχετικά</h2>
+                <div className="mt-4 space-y-5 text-ink-soft leading-relaxed">
+                  <p>
+                    Η ακαδημαϊκή μου εκπαίδευση με εφοδίασε με στέρεες θεωρητικές βάσεις, αλλά και ουσιαστικές
+                    δεξιότητες στην πρακτική εφαρμογή της ψυχολογικής γνώσης.
+                  </p>
+
+                  <p>
+                    Στην επαγγελματική μου πορεία ασχολούμαι με ζητήματα άγχους και διαχείρισης στρες, δυσκολίες στον
+                    εργασιακό χώρο, καταθλιπτικά συναισθήματα, προκλήσεις στις διαπροσωπικές σχέσεις, αυτοεκτίμηση και
+                    προσαρμογή σε νέες ή απαιτητικές συνθήκες ζωής.
+                  </p>
+
+                  <p className="italic text-ink-strong font-medium">
+                    Η φιλοσοφία μου βασίζεται στην πεποίθηση ότι μέσα από τη θεραπευτική διαδικασία μπορούμε να
+                    αναδείξουμε τις εσωτερικές μας δυνάμεις και να οικοδομήσουμε μια πιο ισορροπημένη καθημερινότητα.
+                  </p>
+                </div>
+              </div>
+
               {/* CTA */}
               <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#1f2937] px-5 py-3 text-white text-sm font-medium shadow-sm hover:bg-[#111827]
+                  className="inline-flex items-center justify-center rounded-xl bg-ink-strong px-5 py-3 text-white text-sm font-medium shadow-sm hover:opacity-90
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
                 >
                   Κλείσε ραντεβού
                 </a>
+
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-5 py-3 text-sm font-medium text-slate-700 hover:bg-white/60"
+                  className="inline-flex items-center justify-center rounded-xl border border-black/50 px-5 py-3 text-sm font-medium text-ink hover:bg-white/60"
                 >
                   Υπηρεσίες
                 </a>
@@ -116,7 +145,8 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <p className="mt-3 text-center md:text-right text-sm text-slate-500">
+
+              <p className="mt-3 text-center md:text-right text-sm text-ink-soft">
                 Διαθέσιμες συνεδρίες: online & δια ζώσης
               </p>
             </div>
@@ -124,48 +154,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT (panel) */}
-      <section id="about" className="scroll-mt-24 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-semibold text-ink">Σχετικά</h2>
-              <div className="h-1 w-16 bg-[#2f3e34]/70 mx-auto my-8 rounded-full" />
+      {/* SERVICES */}
+      <section id="services" className={section}>
+        <div className={container}>
+          <div className={panel}>
+            <h2 className="text-3xl md:text-4xl font-semibold text-center text-ink">Υπηρεσίες</h2>
+            <div className="h-1 w-16 bg-ink/30 mx-auto my-8 rounded-full" />
 
-              <div className="space-y-6 text-ink-soft leading-relaxed text-lg">
-                <p>
-                  Η ακαδημαϊκή μου εκπαίδευση με εφοδίασε με στέρεες θεωρητικές βάσεις, αλλά και ουσιαστικές
-                  δεξιότητες στην πρακτική εφαρμογή της ψυχολογικής γνώσης.
-                </p>
-
-                <p>
-                  Στην επαγγελματική μου πορεία ασχολούμαι με ζητήματα άγχους και διαχείρισης στρες, δυσκολίες στον
-                  εργασιακό χώρο, καταθλιπτικά συναισθήματα, προκλήσεις στις διαπροσωπικές σχέσεις, αυτοεκτίμηση και
-                  προσαρμογή σε νέες ή απαιτητικές συνθήκες ζωής.
-                </p>
-
-                <p className="italic text-ink-strong font-medium">
-                  Η φιλοσοφία μου βασίζεται στην πεποίθηση ότι μέσα από τη θεραπευτική διαδικασία μπορούμε να
-                  αναδείξουμε τις εσωτερικές μας δυνάμεις και να οικοδομήσουμε μια πιο ισορροπημένη καθημερινότητα.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES (panel + gentle intro) */}
-      <section id="services" className="scroll-mt-24 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
-            <h2 className="text-3xl md:text-4xl font-semibold text-center">Υπηρεσίες</h2>
-            <p className="mx-auto mt-4 mb-10 max-w-2xl text-center text-ink leading-relaxed">
+            <p className="mx-auto -mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
               Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
             </p>
+
             <div className="mx-auto max-w-3xl">
-              <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
+              <div className="grid gap-6">
                 {services.map((s) => (
-                  <ServiceCard key={s.title} title={s.title} text={s.text} className="bg-[#fbfbfa] border-[#dcdcd7] pl-6 relative" />
+                  <ServiceCard
+                    key={s.title}
+                    title={s.title}
+                    text={s.text}
+                    className="bg-surface ring-1 ring-black/10 pl-6 relative"
+                  />
                 ))}
               </div>
             </div>
@@ -173,12 +181,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OFFICE (panel + gallery) */}
-      <section id="office" className="scroll-mt-24 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-3xl bg-borderInk ring-1 ring-[#dcdcd7] px-6 py-14 md:px-12 md:py-16">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Ο χώρος μου</h2>
-            <p className="text-slate-600 max-w-2xl leading-relaxed mb-10">
+      {/* OFFICE */}
+      <section id="office" className={section}>
+        <div className={container}>
+          <div className={panel}>
+            <h2 className="text-3xl md:text-4xl font-semibold text-ink">Ο χώρος μου</h2>
+            <div className="h-1 w-16 bg-ink/30 my-8 rounded-full" />
+
+            <p className="-mt-2 text-ink-soft max-w-2xl leading-relaxed mb-10">
               Ένας χώρος σχεδιασμένος ώστε να προσφέρει ηρεμία, άνεση και αίσθηση ασφάλειας.
             </p>
 
@@ -187,12 +197,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT (panel + form) */}
-      <section id="contact" className="scroll-mt-24 py-20 md:py-24">
-        <div className="max-w-7xl mx-auto px-6">
-            <ContactSection />
+      {/* CONTACT */}
+      <section id="contact" className={section}>
+        <div className={container}>
+          {/* Keep ContactSection in its own layout since it probably has its own panel */}
+          <ContactSection />
         </div>
       </section>
     </main>
   );
 }
+

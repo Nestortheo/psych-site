@@ -169,8 +169,8 @@ export default function ContactForm({compact=false}) {
             <button
                 type="submit"
                 disabled={isLoading}
-                className="rounded-xl bg-[#1f2937] text-white px-5 py-2.5 text-sm font-medium
-                        disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#111827]"
+                className="rounded-xl bg-ink-strong text-white px-5 py-2.5 text-sm font-medium
+                        disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-75"
             >
                 {isLoading ? "Αποστολή..." : "Αποστολή"}
             </button>

@@ -5,11 +5,11 @@ export default function ContactSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-3xl border border-[#dcdcd7] bg-[#fbfbfa] p-6 shadow-sm sm:p-8">
+    <div className="rounded-3xl border border-[#dcdcd7] bg-surface/55 p-6 shadow-sm sm:p-8">
       {/* Header + Details (always visible) */}
       <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
         <div>
-          <h3 className="text-4xl font-semibold text-slate-900">
+          <h3 className="text-4xl font-semibold text-ink">
             Επικοινωνία
           </h3>
           <p className="mt-2 text-sm text-slate-700 leading-relaxed">
@@ -43,14 +43,14 @@ export default function ContactSection() {
         <div className="flex flex-col gap-3 md:items-end">
           <a
             href="tel:2311829090"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
+            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-ink px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
           >
             Call
           </a>
 
           <a
             href="mailto:dimitrismichoudis@gmail.com"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
+            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-ink px-4 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/60"
           >
             Email
           </a>
@@ -58,11 +58,11 @@ export default function ContactSection() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl bg-[#1f2937] px-4 py-2.5 text-sm font-medium text-white hover:bg-[#111827]"
+            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl bg-ink-strong hover:opacity-90 px-4 py-2.5 text-sm font-medium text-white "
             aria-expanded={open}
             aria-controls="contact-form"
           >
-            {open ? "Hide form" : "Send a message"}
+            {open ? "Κλείσιμο" : "Επικοινώνησε μαζί μου"}
           </button>
         </div>
       </div>

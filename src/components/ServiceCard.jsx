@@ -13,7 +13,8 @@ export default function ServiceCard({ title, text, className = "" }) {
     >
       <span className="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-slate-900/10" />
       <h3 className="text-lg font-semibold text-ink mb-2">{title}</h3>
-      <p className="text-ink-strong text-sm leading-6">{text}</p>
+      <div className="border-t border-black/10"></div>
+      <p className="text-ink-strong text-sm leading-6 mt-4">{text}</p>
     </div>
   );
 }
