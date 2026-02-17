@@ -1,16 +1,23 @@
-# React + Vite
+# Psychologist Website – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for a psychologist website built with React and connected to a Django backend.  
+The project focuses on form handling and frontend–backend communication.
 
-Currently, two official plugins are available:
+## Tech Stack
+- React
+- JavaScript (ES6+)
+- Axios
+- Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Form handling with controlled inputs
+- Sending data to Django backend via API
+- Clean and structured React components
+- Full integration with backend services
 
-## React Compiler
+## How to run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+npm install  
+npm run dev  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Make sure the Django backend server is running for the form to work.
