@@ -10,7 +10,7 @@ export default function Footer() {
 
           {/* Brand / Summary */}
           <div className="max-w-sm mx-auto text-center">
-            <h3 className="text-md leading-relaxed mb-2">
+            <h3 className="text-md text-md font-semibold uppercase tracking-wide text-footer-ink-muted mb-2">
               Δημήτρης Μιχούδης
             </h3>
             <p className="text-sm leading-relaxed">
