@@ -62,7 +62,7 @@ export default function ContactSection() {
             aria-expanded={open}
             aria-controls="contact-form"
           >
-            {open ? "Κλείσιμο" : "Επικοινώνησε μαζί μου"}
+            {open ? "Κλείσιμο" : "Στείλε μήνυμα μέσω φόρμας"}
           </button>
         </div>
       </div>
