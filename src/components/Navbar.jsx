@@ -26,7 +26,7 @@ export default function Navbar() {
               className="hidden h-12 w-12 rounded-full bg-slate-900"
               aria-hidden="true"
             />
-            <span className="text-lg md:text-xl font-medium tracking-tight">
+            <span className="text-lg md:text-2xl font-medium tracking-tight">
   Δημήτρης Μιχούδης
 </span>
           </a>
