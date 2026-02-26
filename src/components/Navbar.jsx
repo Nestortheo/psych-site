@@ -34,11 +34,11 @@ export default function Navbar() {
            {/* Desktop links */}
           <div className="hidden md:flex items-center gap-3">
             <a href="/#about" className="text-ink-soft hover:text-ink px-4 py-2 text-base font-medium transition-colors">
-              About
+              Σχετικά
             </a>
 
             <a href="/#services" className="text-ink-soft hover:text-ink px-4 py-2 text-base font-medium transition-colors">
-              Services
+              Υπηρεσίες
             </a>
 
             <a href="/#contact" className="inline-flex items-center justify-center
@@ -50,7 +50,7 @@ export default function Navbar() {
                                       hover:opacity-90
                                       transition-opacity
                                       focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20">
-              Contact
+              Επικοινωνία
             </a>
           </div>
 
@@ -69,9 +69,9 @@ export default function Navbar() {
         {/* Mobile menu */}
         <div id="mobile-menu" className={`md:hidden ${open ? "block" : "hidden"}`}>
           <div className="py-4 px-6 flex flex-col items-center gap-3 bg-surface/10 backdrop-blur shadow-md border-t border-slate-200">
-            <a href="/#about"    className={`${link}`} onClick={() => setOpen(false)}>About</a>
-            <a href="/#services" className={`${link}`} onClick={() => setOpen(false)}>Services</a>
-            <a href="/#contact"  className={`${cta}`}  onClick={() => setOpen(false)}>Contact</a>
+            <a href="/#about"    className={`${link}`} onClick={() => setOpen(false)}>Σχετικά</a>
+            <a href="/#services" className={`${link}`} onClick={() => setOpen(false)}>Υπηρεσίες</a>
+            <a href="/#contact"  className={`${cta}`}  onClick={() => setOpen(false)}>Επικοινωνία</a>
           </div>
         </div>
       </nav>

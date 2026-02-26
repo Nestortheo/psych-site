@@ -67,7 +67,7 @@ export default function Home() {
           <div className="grid items-center gap-12 md:gap-16 md:grid-cols-2">
             {/* Text */}
             <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink mb-8">
                 Δημήτρης Μιχούδης
               </h1>
 
