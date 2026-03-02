@@ -26,9 +26,10 @@ export default function Navbar() {
               className="hidden h-12 w-12 rounded-full bg-slate-900"
               aria-hidden="true"
             />
-            <span className="text-lg md:text-2xl font-medium tracking-tight">
-  Δημήτρης Μιχούδης
-</span>
+            <span className="flex flex-col items-center">
+              <h2 className="text-xl md:text-2xl font-medium tracking-tight">Δημητρης Μιχούδης</h2>
+              <p className="text-sm md:text-md text-neutral-800">Ψυχολόγος / Ψυχοθεραπευτής</p>
+            </span>
           </a>
 
            {/* Desktop links */}
