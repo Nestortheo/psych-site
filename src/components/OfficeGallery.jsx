@@ -1,15 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function OfficeGallery({ photos }) {
   const [activePhoto, setActivePhoto] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const closeGallery = () => {
+    setActiveIndex(null)
+  }
+  console.log("log length", photos.length)
+
+  useEffect(() => {
+    console.log("index ->", activeIndex)
+},[activeIndex])
+
+  const nextPhoto = () => {
+          //setActiveIndex((prev) => (prev + 1) % photos.length);
+          if(activeIndex === photos.length - 1){
+            setActiveIndex(0)
+          }
+          else{
+            setActiveIndex(activeIndex + 1)
+          }
+  };
+
+  const prevPhoto = () => {
+          //setActiveIndex((prev) => (prev - 1 + photos.length) % photos.length);
+          if(activeIndex === 0){
+            setActiveIndex(photos.length - 1)
+          }
+          else{
+            setActiveIndex(activeIndex -1)
+          }
+  };
+
+  //Keyboard controls
+  useEffect(() => {
+    const handleKey = (e) => {
+      if(activeIndex === null) return;
+      if(e.key === "ArrowRight") nextPhoto();
+      if(e.key === "ArrowLeft") prevPhoto();
+      if(e.key === "Escape") closeGallery();
+    };
+    window.addEventListener("keydown", handleKey)
+    return () => window.removeEventListener("keydown", handleKey);
+  },[activeIndex])
 
   return (
     <>
+    {/* GRID LOADS PHOTOS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {photos.map((photo, i) => (
           <button
             key={i}
-            onClick={() => setActivePhoto(photo.src)}
+           // onClick={() => setActivePhoto(photo.src)}
+            onClick = {() =>setActiveIndex(i)}
             className="group focus:outline-none"
             aria-label={`Open office photo ${i + 1}`}
           >
@@ -23,21 +67,77 @@ export default function OfficeGallery({ photos }) {
           </button>
         ))}
       </div>
-
+      {/* LIGHTBOX */}
+    {/* 
+      PREV VERSION NO ARROWS
       {activePhoto && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center
+                      bg-black/50 backdrop-blur-sm"
+            onClick={() => setActivePhoto(null)}
+          >
+            <img
+              src={activePhoto}
+              className="max-h-[90vh] max-w-[90vw]
+                        rounded-2xl shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )} */}
+      {activeIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center
-                     bg-black/50 backdrop-blur-sm"
-          onClick={() => setActivePhoto(null)}
+                      bg-black/50 backdrop-blur-sm"   
+          onClick = {closeGallery}
         >
-          <img
-            src={activePhoto}
+          {/* LEFT ARROW */}
+           <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevPhoto();
+            }}
+            className="absolute left-6 text-white/80 hover:text-white
+                       text-4xl select-none"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+          {/* IMG */}
+          <img 
+            src = {photos[activeIndex].src}
+            alt={photos[activeIndex].alt}
             className="max-h-[90vh] max-w-[90vw]
-                       rounded-2xl shadow-xl"
+                        rounded-2xl shadow-xl"
             onClick={(e) => e.stopPropagation()}
           />
+          {/* RIGHT ARROW */}
+           <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextPhoto();
+            }}
+            className="absolute right-6 text-white/80 hover:text-white
+                       text-4xl select-none"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+          {/* CLOSE BUTTON */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              closeGallery();
+            }}
+            className="absolute top-6 right-6 text-white/80 hover:text-white
+                       text-3xl"
+            aria-label="Close gallery"
+          >
+            ✕
+          </button>
         </div>
       )}
+     
     </>
   );
 }
