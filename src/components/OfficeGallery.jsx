@@ -14,23 +14,27 @@ export default function OfficeGallery({ photos }) {
 },[activeIndex])
 
   const nextPhoto = () => {
-          //setActiveIndex((prev) => (prev + 1) % photos.length);
-          if(activeIndex === photos.length - 1){
-            setActiveIndex(0)
-          }
-          else{
-            setActiveIndex(activeIndex + 1)
-          }
-  };
+  //setActiveIndex((prev) => (prev + 1) % photos.length);
+  setActiveIndex(prev => {
+    if (prev === photos.length - 1) return 0;
+    return prev + 1;
+  });
+};
 
   const prevPhoto = () => {
           //setActiveIndex((prev) => (prev - 1 + photos.length) % photos.length);
+          /*
           if(activeIndex === 0){
             setActiveIndex(photos.length - 1)
           }
           else{
             setActiveIndex(activeIndex -1)
           }
+        */
+          setActiveIndex((prev) => {
+            if(prev === 0) return photos.length-1
+            return prev-1
+          })
   };
 
   //Keyboard controls
