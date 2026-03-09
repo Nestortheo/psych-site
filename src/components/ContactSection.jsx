@@ -7,7 +7,7 @@ export default function ContactSection() {
   return (
     <div className="rounded-3xl border border-[#dcdcd7] bg-surface/55 p-6 shadow-sm sm:p-8">
       {/* Header + Details (always visible) */}
-      <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+      <div className="grid gap-6 grid-cols md:grid-cols-[1.2fr_0.8fr] md:items-start">
         <div>
           <h3 className="text-4xl font-semibold text-ink">
             Επικοινωνία
