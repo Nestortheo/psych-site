@@ -7,7 +7,7 @@ export default function HeroText() {
   return (
     <div className="text-center md:text-left">
 
-      <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-ink mb-4">
+      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
         Μερικά Λόγια
       </h1>
 
