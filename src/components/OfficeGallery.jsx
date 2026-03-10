@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 
 export default function OfficeGallery({ photos }) {
+
   const [activePhoto, setActivePhoto] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
+  //Mobile swipe
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const closeGallery = () => {
     setActiveIndex(null)
@@ -20,6 +24,8 @@ export default function OfficeGallery({ photos }) {
     return prev + 1;
   });
 };
+
+
 
   const prevPhoto = () => {
           //setActiveIndex((prev) => (prev - 1 + photos.length) % photos.length);
@@ -49,6 +55,19 @@ export default function OfficeGallery({ photos }) {
     return () => window.removeEventListener("keydown", handleKey);
   },[activeIndex])
 
+   // swipe detection
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+
+    if (distance > 50) nextPhoto();   // swipe left
+    if (distance < -50) prevPhoto();  // swipe right
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <>
     {/* GRID LOADS PHOTOS */}
@@ -71,7 +90,7 @@ export default function OfficeGallery({ photos }) {
           </button>
         ))}
       </div>
-      {/* LIGHTBOX */}
+      {/* PREV LIGHTBOX */}
     {/* 
       PREV VERSION NO ARROWS
       {activePhoto && (
@@ -88,11 +107,20 @@ export default function OfficeGallery({ photos }) {
             />
           </div>
         )} */}
+
+      {/* LIGHTBOX */} 
       {activeIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center
                       bg-black/50 backdrop-blur-sm"   
           onClick = {closeGallery}
+          onTouchStart={(e) =>
+            setTouchStart(e.targetTouches[0].clientX)
+          }
+          onTouchMove={(e) =>
+            setTouchEnd(e.targetTouches[0].clientX)
+          }
+          onTouchEnd={handleTouchEnd}
         >
           {/* LEFT ARROW */}
            <button
@@ -100,7 +128,7 @@ export default function OfficeGallery({ photos }) {
               e.stopPropagation();
               prevPhoto();
             }}
-            className="absolute left-6 text-white/80 hover:text-white
+            className="hidden md:block absolute left-6 text-white/80 hover:text-white
                        text-4xl select-none"
             aria-label="Previous image"
           >
@@ -120,7 +148,7 @@ export default function OfficeGallery({ photos }) {
               e.stopPropagation();
               nextPhoto();
             }}
-            className="absolute right-6 text-white/80 hover:text-white
+            className="hidden md:block absolute right-6 text-white/80 hover:text-white
                        text-4xl select-none"
             aria-label="Next image"
           >
