@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function OfficeGallery({ photos }) {
 
-  const [activePhoto, setActivePhoto] = useState(null);
+  //const [activePhoto, setActivePhoto] = useState(null);
   const [activeIndex, setActiveIndex] = useState(null);
   //Mobile swipe
   const [touchStart, setTouchStart] = useState(null);
@@ -67,6 +67,19 @@ export default function OfficeGallery({ photos }) {
     setTouchStart(null);
     setTouchEnd(null);
   };
+
+  //Lock backscreen when opened photo
+  useEffect(() => {
+  if (activeIndex !== null) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [activeIndex]);
 
   return (
     <>
