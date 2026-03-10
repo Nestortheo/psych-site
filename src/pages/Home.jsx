@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* HERO */}
-      <section id="hero" className={section}>
+      <section id="about" className={section}>
         <div className={container}>
           <div className="grid items-center gap-12 md:gap-2 md:grid-cols-2">
 
