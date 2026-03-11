@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { sendContact } from "../api/api";
+
 export default function ContactForm({compact=false}) {
 
     const [status, setStatus] = useState({ type: "", message: "" });
@@ -56,13 +57,8 @@ export default function ContactForm({compact=false}) {
         setStatus({ type: "", message: "" });
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact/`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
-            });
-
-            const data = await res.json();
+           const data = await sendContact(form);
+    
             if (data.ok) {
                 //alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
                 setStatus({ type: "success", message: "✅ Το μήνυμα στάλθηκε με επιτυχία!" });

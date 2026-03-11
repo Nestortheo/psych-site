@@ -1,9 +1,11 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000",
+  timeout: 20000,
+});
 
-export const sendContact = (form) => {
-  return axios.post(`${API_URL}/api/contact/`, form, {
-    timeout: 20000,
-  });
-};
+export async function sendContact(form) {
+  const res = await api.post("/api/contact/", form);
+  return res.data;
+}
