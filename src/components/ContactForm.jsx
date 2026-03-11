@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { sendContact } from "../api/api";
 export default function ContactForm({compact=false}) {
 
     const [status, setStatus] = useState({ type: "", message: "" });

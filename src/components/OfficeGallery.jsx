@@ -28,19 +28,19 @@ export default function OfficeGallery({ photos }) {
 
 
   const prevPhoto = () => {
-          //setActiveIndex((prev) => (prev - 1 + photos.length) % photos.length);
-          /*
-          if(activeIndex === 0){
-            setActiveIndex(photos.length - 1)
-          }
-          else{
-            setActiveIndex(activeIndex -1)
-          }
-        */
-          setActiveIndex((prev) => {
-            if(prev === 0) return photos.length-1
-            return prev-1
-          })
+    //setActiveIndex((prev) => (prev - 1 + photos.length) % photos.length);
+    /*
+    if(activeIndex === 0){
+       setActiveIndex(photos.length - 1)
+    }
+    else{
+        setActiveIndex(activeIndex -1)
+    }
+    */
+    setActiveIndex((prev) => {
+      if(prev === 0) return photos.length-1
+      return prev-1
+    })
   };
 
   //Keyboard controls
@@ -57,29 +57,29 @@ export default function OfficeGallery({ photos }) {
 
    // swipe detection
   const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+      if (!touchStart || !touchEnd) return;
 
-    const distance = touchStart - touchEnd;
+      const distance = touchStart - touchEnd;
 
-    if (distance > 50) nextPhoto();   // swipe left
-    if (distance < -50) prevPhoto();  // swipe right
+      if (distance > 50) nextPhoto();   // swipe left
+      if (distance < -50) prevPhoto();  // swipe right
 
-    setTouchStart(null);
-    setTouchEnd(null);
+      setTouchStart(null);
+      setTouchEnd(null);
   };
 
   //Lock backscreen when opened photo
   useEffect(() => {
-  if (activeIndex !== null) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
+      if (activeIndex !== null) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
 
-  return () => {
-    document.body.style.overflow = "auto";
-  };
-}, [activeIndex]);
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+  }, [activeIndex]);
 
   return (
     <>
