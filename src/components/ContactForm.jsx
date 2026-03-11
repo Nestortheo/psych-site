@@ -46,35 +46,45 @@ export default function ContactForm({compact=false}) {
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // stop page reload
+    e.preventDefault();
 
-        const validationError = validateForm();
-        if (validationError) {
-            setStatus({ type: "error", message: validationError });
-            return;
-        }
-        setIsLoading(true);
-        setStatus({ type: "", message: "" });
+    const validationError = validateForm();
+    if (validationError) {
+        setStatus({ type: "error", message: validationError });
+        return;
+    }
+
+    setIsLoading(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+
+        let data;
 
         try {
-           const data = await sendContact(form);
-    
-            if (data.ok) {
-                //alert("✅ Το μήνυμα στάλθηκε με επιτυχία!");
-                setStatus({ type: "success", message: "✅ Το μήνυμα στάλθηκε με επιτυχία!" });
-                setForm({ name: "", last_name: "", email: "", phone: "", message: "", website: "" });
-                } else {
-                setStatus({ type: "error", message: "❌ Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά." });
-                }
-        } catch (err) {
-            console.error("Error submitting form:", err);
-            setStatus({ type: "error", message: "⚠️ Δεν ήταν δυνατή η σύνδεση με τον διακομιστή." });
-            //alert("⚠️ Αποτυχία σύνδεσης με τον server.");
-        } finally {
-            setIsLoading(false);
+            // first attempt
+            data = await sendContact(form);
+        } catch {
+            // cold start πιθανό → περίμενε 5s και retry
+            await new Promise(r => setTimeout(r, 5000));
+            data = await sendContact(form);
         }
-        
-    };
+
+        if (data.ok) {
+            setStatus({ type: "success", message: "✅ Το μήνυμα στάλθηκε με επιτυχία!" });
+            setForm({ name: "", last_name: "", email: "", phone: "", message: "", website: "" });
+        } else {
+            setStatus({ type: "error", message: "❌ Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά." });
+        }
+
+    } catch (err) {
+        console.error("Error submitting form:", err);
+        setStatus({ type: "error", message: "⚠️ Δεν ήταν δυνατή η σύνδεση με τον διακομιστή." });
+
+    } finally {
+        setIsLoading(false);
+    }
+};
 
     return (
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5">
