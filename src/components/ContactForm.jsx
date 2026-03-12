@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { sendContact } from "../api/api";
+//import { sendContact } from "../api/api";
+import { sendWithRetry } from "../utils/retry";
 
 export default function ContactForm({compact=false}) {
 
@@ -44,46 +45,50 @@ export default function ContactForm({compact=false}) {
         }
     }, [form.message]);
 
-
+    //submit form
     const handleSubmit = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const validationError = validateForm();
-    if (validationError) {
-        setStatus({ type: "error", message: validationError });
-        return;
-    }
+        const validationError = validateForm();
+        if (validationError) {
+            setStatus({ type: "error", message: validationError });
+            return;
+        }
 
-    setIsLoading(true);
-    setStatus({ type: "", message: "" });
-
-    try {
-
-        let data;
+        setIsLoading(true);
+        setStatus({ type: "", message: "" });
 
         try {
-            // first attempt
-            data = await sendContact(form);
-        } catch {
-            // cold start πιθανό → περίμενε 5s και retry
-            await new Promise(r => setTimeout(r, 5000));
-            data = await sendContact(form);
+
+            const data = await sendWithRetry(form);
+
+            if (data.ok) {
+                setStatus({ type: "success", message: "✅ Το μήνυμα στάλθηκε με επιτυχία!" });
+                setForm({
+                    name: "",
+                    last_name: "",
+                    email: "",
+                    phone: "",
+                    message: "",
+                    website: ""
+                });
+            } else {
+                setStatus({ type: "error", message: "❌ Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά." });
+            }
+
+        } 
+        catch (err) {
+            console.error(err);
+
+            setStatus({
+                type: "error",
+                message: "⚠️ Δεν ήταν δυνατή η σύνδεση με τον διακομιστή."
+            });
+
+        } 
+        finally {
+            setIsLoading(false);
         }
-
-        if (data.ok) {
-            setStatus({ type: "success", message: "✅ Το μήνυμα στάλθηκε με επιτυχία!" });
-            setForm({ name: "", last_name: "", email: "", phone: "", message: "", website: "" });
-        } else {
-            setStatus({ type: "error", message: "❌ Παρουσιάστηκε σφάλμα. Δοκίμασε ξανά." });
-        }
-
-    } catch (err) {
-        console.error("Error submitting form:", err);
-        setStatus({ type: "error", message: "⚠️ Δεν ήταν δυνατή η σύνδεση με τον διακομιστή." });
-
-    } finally {
-        setIsLoading(false);
-    }
 };
 
     return (
