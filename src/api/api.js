@@ -10,22 +10,3 @@ export async function sendContact(form) {
   return res.data;
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-const sendWithRetry = async (form) => {
-  const MAX_TRIES = 4;
-
-  for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {
-    try {
-      return await sendContact(form);
-    } catch (err) {
-
-      if (attempt === MAX_TRIES) {
-        throw err;
-      }
-
-      // exponential-ish backoff
-      await sleep(1000 * attempt);
-    }
-  }
-};
