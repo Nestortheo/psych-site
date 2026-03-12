@@ -36,6 +36,7 @@ export default function Home() {
   //Just to wake up sleeping server, we dont care to get anything back
   //only to wake it up.
   useEffect(() => {
+  console.log("waking backend...");
   fetch(`${import.meta.env.VITE_API_URL}/api/contact/`)
     .catch(() => {});
 }, []);
