@@ -10,9 +10,9 @@ export default function Footer() {
 
           {/* Brand / Summary */}
           <div className="max-w-sm mx-auto text-center">
-            <h3 className="text-md text-md font-semibold uppercase tracking-wide text-footer-ink-muted mb-2">
+            <h2 className="text-md text-md font-semibold uppercase tracking-wide text-footer-ink-muted mb-2">
               Δημήτρης Μιχούδης
-            </h3>
+            </h2>
             <p className="text-sm leading-relaxed">
               Ψυχολόγος στη Θεσσαλονίκη — παροχή ατομικής θεραπείας με σεβασμό,
               εμπιστοσύνη και επιστημονική τεκμηρίωση.

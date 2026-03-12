@@ -9,9 +9,9 @@ export default function ContactSection() {
       {/* Header + Details (always visible) */}
       <div className="grid gap-6 grid-cols md:grid-cols-[1.2fr_0.8fr] md:items-start">
         <div>
-          <h3 className="text-4xl font-semibold text-ink">
+          <h2 className="text-4xl font-semibold text-ink">
             Επικοινωνία
-          </h3>
+          </h2>
           <p className="mt-2 text-sm text-slate-700 leading-relaxed">
             Μπορείτε να επικοινωνήσετε τηλεφωνικά ή μέσω email. Αν προτιμάτε, στείλτε μήνυμα μέσω της φόρμας.
           </p>

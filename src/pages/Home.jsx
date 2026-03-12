@@ -139,7 +139,7 @@ export default function Home() {
             <section id="services" className={section}>
               <div className={container}>
                 <div className={panel}>
-                  <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες</h2>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες Ψυχοθεραπείας</h2>
                   <div className="h-1 w-16 bg-ink/30  my-8 rounded-full" />
 
                   <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
