@@ -33,6 +33,13 @@ export default function Home() {
     "rounded-3xl bg-surface/55 ring-1 ring-black/10 px-6 py-14 md:px-12 md:py-16";
   const divider = "h-1 w-16 bg-ink/30 mx-auto my-8 rounded-full";
 
+  //Just to wake up sleeping server, we dont care to get anything back
+  //only to wake it up.
+  useEffect(() => {
+  fetch(`${import.meta.env.VITE_API_URL}/api/contact/`)
+    .catch(() => {});
+}, []);
+
   return (
     <main id="content" className="text-ink">
       {/* TOP PHOTO BANNER */}
