@@ -14,7 +14,7 @@ import OfficeGallery from "../components/OfficeGallery";
 import ContactSection from "../components/ContactSection";
 import HeroText from "../components/HeroText"
 import { services } from "../data/services";
-
+import { useEffect } from "react";
 
 export default function Home() {
   const officePhotos = [
