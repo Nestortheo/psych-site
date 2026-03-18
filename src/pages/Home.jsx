@@ -67,20 +67,30 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
 
           {/* HERO CONTENT */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <div className="
+            absolute inset-0 
+            flex flex-col items-center justify-center 
+            text-center px-6 
+            max-w-2xl mx-auto 
+          ">
 
             <h1 className="
-              text-white/90
+              text-white
               text-3xl sm:text-4xl md:text-5xl 
               font-semibold 
               tracking-tight
-              max-w-3xl
             ">
-              Ψυχοθεραπεία με σεβασμό και εμπιστοσύνη
+              Ψυχοθεραπεία στη Θεσσαλονίκη με στόχο την ουσιαστική αλλαγή
             </h1>
 
-            <p className="mt-4 text-white text-base sm:text-lg">
-              Θεσσαλονίκη & Online
+            <p className="
+              mt-5 
+              text-white/90 
+              text-base sm:text-lg 
+              leading-relaxed
+            ">
+              Με σεβασμό, εμπιστοσύνη και εξατομικευμένη προσέγγιση — 
+              δια ζώσης στη Θεσσαλονίκη ή online.
             </p>
 
             <a
@@ -90,11 +100,12 @@ export default function Home() {
                 inline-flex items-center justify-center
                 rounded-xl
                 bg-white text-black
-                px-6 py-3
-                text-sm font-medium
+                px-7 py-3.5
+                text-sm font-semibold
                 shadow-lg
                 hover:bg-white/90
-                transition
+                hover:scale-[1.03]
+                transition-all
               "
             >
               Κλείσε ραντεβού
@@ -135,32 +146,32 @@ export default function Home() {
         </div>
       </section>
 
-            {/* SERVICES */}
-            <section id="services" className={section}>
-              <div className={container}>
-                <div className={panel}>
-                  <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες Ψυχοθεραπείας</h2>
-                  <div className="h-1 w-16 bg-ink/30  my-8 rounded-full" />
+      {/* SERVICES */}
+      <section id="services" className={section}>
+        <div className={container}>
+          <div className={panel}>
+            <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες Ψυχοθεραπείας</h2>
+            <div className="h-1 w-16 bg-ink/30  my-8 rounded-full" />
 
-                  <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
-                    Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
-                  </p>
+            <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
+              Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
+            </p>
 
-                  <div className="max-w-3xl">
-                    <div className="grid gap-6">
-                      {services.map((s) => (
-                        <ServiceCard
-                          key={s.title}
-                          title={s.title}
-                          text={s.text}
-                          className="bg-surface ring-1 ring-black/10 pl-6 relative"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
+            <div className="max-w-3xl">
+              <div className="grid gap-6">
+                {services.map((s) => (
+                  <ServiceCard
+                    key={s.title}
+                    title={s.title}
+                    text={s.text}
+                    className="bg-surface ring-1 ring-black/10 pl-6 relative"
+                  />
+                ))}
               </div>
-            </section>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* OFFICE */}
       <section id="office" className={section}>

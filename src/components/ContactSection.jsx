@@ -41,30 +41,58 @@ export default function ContactSection() {
 
         {/* Actions */}
         <div className="flex flex-col gap-3 md:items-end">
-          <a
-            href="tel:2311829090"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-black/20 px-4 py-2.5 text-sm font-medium text-ink hover:bg-white/60"
-          >
-            Call
-          </a>
 
-          <a
-            href="mailto:dimitrismichoudis@gmail.com"
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl border border-black/20 px-4 py-2.5 text-sm font-medium text-ink hover:bg-white/60"
-          >
-            Email
-          </a>
+  <a
+    href="tel:2311829090"
+    className="
+      inline-flex w-full md:w-auto items-center justify-center
+      rounded-xl
+      border border-black/20
+      px-5 py-3
+      text-sm font-medium text-ink
+      hover:bg-black/5
+      transition
+    "
+  >
+    Κάλεσε τώρα
+  </a>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex w-full md:w-auto items-center justify-center rounded-xl bg-ink-strong hover:opacity-90 px-4 py-2.5 text-sm font-medium text-white "
-            aria-expanded={open}
-            aria-controls="contact-form"
-          >
-            {open ? "Κλείσιμο" : "Στείλε μήνυμα μέσω φόρμας"}
-          </button>
-        </div>
+  <a
+    href="mailto:dimitrismichoudis@gmail.com"
+    className="
+      inline-flex w-full md:w-auto items-center justify-center
+      rounded-xl
+      border border-black/20
+      px-5 py-3
+      text-sm font-medium text-ink
+      hover:bg-black/5
+      transition
+    "
+  >
+    Στείλε email
+  </a>
+
+  <button
+    type="button"
+    onClick={() => setOpen((v) => !v)}
+    className="
+      inline-flex w-full md:w-auto items-center justify-center
+      rounded-xl
+      bg-ink-strong text-white
+      px-6 py-3.5
+      text-sm font-semibold
+      shadow-md
+      hover:scale-[1.02]
+      hover:opacity-95
+      transition-all
+    "
+    aria-expanded={open}
+    aria-controls="contact-form"
+  >
+    {open ? "Κλείσιμο φόρμας" : "Στείλε μήνυμα"}
+  </button>
+
+</div>
       </div>
 
       {/* Expandable form */}

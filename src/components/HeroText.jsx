@@ -5,18 +5,23 @@ export default function HeroText() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-center md:text-left">
+    <div className="text-center md:text-left max-w-xl">
 
-      <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
-        Μερικά Λόγια
-      </h1>
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-5">
+        Λίγα λόγια για εμένα
+      </h2>
 
-      <p className="text-base md:text-lg text-ink-soft mb-6">
+      <p className="text-sm md:text-base text-ink-strong mb-6 font-medium">
         Ψυχολόγος • Συμβουλευτική Ψυχολογία • Θεσσαλονίκη & Online
       </p>
 
       {/* SHORT INTRO ONLY */}
-      <p className="text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl mx-auto md:mx-0">
+      <p className="
+        text-base md:text-lg 
+        text-ink 
+        leading-relaxed 
+        mb-6
+      ">
         Ονομάζομαι Δημήτρης Μιχούδης και είμαι ψυχολόγος.
         Σπούδασα Ψυχολογία στο University of Sheffield,
         City College στη Θεσσαλονίκη και στη συνέχεια ολοκλήρωσα 
@@ -26,14 +31,21 @@ export default function HeroText() {
       {/* EXPAND BUTTON */}
       <button
         onClick={() => setExpanded(prev => !prev)}
-        className="mt-6 text-sm font-medium text-ink-strong underline underline-offset-4 hover:opacity-80"
+        className="
+          mt-6 
+          text-sm font-medium 
+          text-ink-strong 
+          border-b border-ink-strong/40
+          hover:border-ink-strong
+          transition
+        "
       >
         {expanded ? "Λιγότερα" : "Μάθε περισσότερα"}
       </button>
 
       {/* EXPANDABLE CONTENT */}
       {expanded && (
-        <div className="mt-8 space-y-5 text-ink-soft leading-relaxed max-w-2xl mx-auto md:mx-0">
+        <div className="mt-8 space-y-6 text-ink-soft leading-relaxed">
           <p>
             Η ακαδημαϊκή μου εκπαίδευση με εφοδίασε με στέρεες θεωρητικές βάσεις,
             αλλά και ουσιαστικές δεξιότητες στην πρακτική εφαρμογή της ψυχολογικής γνώσης.
@@ -60,21 +72,41 @@ export default function HeroText() {
       )}
 
       {/* CTA */}
-      <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+      <div className="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+
         <a
           href="#contact"
-          className="inline-flex items-center justify-center rounded-xl bg-ink-strong px-5 py-3 text-white text-sm font-medium shadow-sm hover:opacity-90
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+          className="
+            inline-flex items-center justify-center
+            rounded-xl
+            bg-ink-strong text-white
+            px-6 py-3.5
+            text-sm font-semibold
+            shadow-md
+            hover:scale-[1.02]
+            hover:opacity-95
+            transition-all
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20
+          "
         >
           Κλείσε ραντεβού
         </a>
 
         <a
           href="#services"
-          className="inline-flex items-center justify-center rounded-xl border border-black/20 px-5 py-3 text-sm font-medium text-ink hover:bg-white/60"
+          className="
+            inline-flex items-center justify-center
+            rounded-xl
+            border border-black/20
+            px-6 py-3.5
+            text-sm font-medium text-ink
+            hover:bg-black/5
+            transition
+          "
         >
-          Υπηρεσίες
+          Δες τις υπηρεσίες
         </a>
+
       </div>
 
     </div>

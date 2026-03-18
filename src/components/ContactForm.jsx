@@ -48,7 +48,7 @@ export default function ContactForm({compact=false}) {
     //submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log("API URL:", import.meta.env.VITE_API_URL);
         const validationError = validateForm();
         if (validationError) {
             setStatus({ type: "error", message: validationError });
@@ -93,7 +93,7 @@ export default function ContactForm({compact=false}) {
 
     return (
         <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-5">
-            <div className="grid gap-4">
+            <div className="grid gap-6">
             {/* 🕵️ Honeypot field */}
             <div
                 className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0 pointer-events-none"
@@ -109,8 +109,8 @@ export default function ContactForm({compact=false}) {
                 className="hidden"
                 />
             </div>
-
-            <div>
+            <div className="grid gap-4 md:grid-cols-2">
+                <div>
                 <label className="block text-sm font-medium text-gray-900 mb-1 text-left">
                 Όνομα *
                 </label>
@@ -119,7 +119,7 @@ export default function ContactForm({compact=false}) {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                className="w-full rounded-xl border border-black/20 bg-white px-4 py-3 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
 
@@ -132,8 +132,9 @@ export default function ContactForm({compact=false}) {
                 name="last_name"
                 value={form.last_name}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                className="w-full rounded-xl border border-black/20 bg-white px-4 py-3 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
+            </div>
             </div>
 
             <div>
@@ -145,7 +146,7 @@ export default function ContactForm({compact=false}) {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                className="w-full rounded-xl border border-black/20 bg-white px-4 py-3 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
 
@@ -158,7 +159,7 @@ export default function ContactForm({compact=false}) {
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                className="w-full rounded-xl border border-black/20 bg-white px-4 py-3 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
 
@@ -171,25 +172,36 @@ export default function ContactForm({compact=false}) {
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-black/20 bg-white px-3 py-2 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
+                className="resize-none w-full rounded-xl border border-black/20 bg-white px-4 py-3 outline-none transition focus:border-black/40 focus:ring-2 focus:ring-black/10"
                 />
             </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* BUTTON + STATUS */}
+            <div>
+
             <button
                 type="submit"
                 disabled={isLoading}
-                className="rounded-xl bg-ink-strong text-white px-5 py-2.5 text-sm font-medium
-                        disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-75"
+                className="
+                rounded-xl
+                bg-ink-strong text-white
+                px-6 py-3.5
+                text-sm font-semibold
+                shadow-md
+                hover:scale-[1.02]
+                hover:opacity-95
+                transition-all
+                disabled:opacity-50 disabled:cursor-not-allowed
+                "
             >
-                {isLoading ? "Αποστολή..." : "Αποστολή"}
+                {isLoading ? "Αποστολή..." : "Στείλε μήνυμα"}
             </button>
 
             {status.message && (
                 <p
-                className={`text-sm ${
-                    status.type === "success" ? "text-ink-soft" : "text-red-700"
+                className={`mt-3 text-sm ${
+                    status.type === "success" ? "text-green-700" : "text-red-700"
                 }`}
                 >
                 {status.message}
