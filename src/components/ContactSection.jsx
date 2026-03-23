@@ -17,20 +17,20 @@ export default function ContactSection() {
           </p>
 
           <div className="mt-5 space-y-2 text-sm text-slate-800">
-            <div className="flex items-start gap-3">
-              <span className="font-medium text-slate-900">Τηλέφωνο:</span>
+            <div className="flex items-start gap-2">
+              <span className="w-[75px] font-medium text-slate-900">Τηλέφωνο:</span>
               <a href="tel:2311829090" className="hover:underline underline-offset-2">
                 231 182 9090
               </a>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-medium text-slate-900">Email:</span>
+            <div className="flex items-start gap-2">
+              <span className="w-[75px] font-medium text-slate-900">Email:</span>
               <a href="mailto:dimitrismichoudis@gmail.com" className="hover:underline underline-offset-2">
                 dimitrismichoudis@gmail.com
               </a>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="font-medium text-slate-900">Περιοχή:</span>
+            <div className="flex items-start gap-2">
+              <span className="w-[75px] font-medium text-slate-900">Περιοχή:</span>
               <span>Κομνηνών 23, Θεσσαλονίκη 54624</span>
             </div>
             <div className="pt-2 text-xs text-slate-600 italic">
@@ -42,57 +42,57 @@ export default function ContactSection() {
         {/* Actions */}
         <div className="flex flex-col gap-3 md:items-end">
 
-  <a
-    href="tel:2311829090"
-    className="
-      inline-flex w-full md:w-auto items-center justify-center
-      rounded-xl
-      border border-black/20
-      px-5 py-3
-      text-sm font-medium text-ink
-      hover:bg-black/5
-      transition
-    "
-  >
-    Κάλεσε τώρα
-  </a>
+          <a
+            href="tel:2311829090"
+            className="
+              inline-flex w-full md:w-auto items-center justify-center
+              rounded-xl
+              border border-black/20
+              px-5 py-3
+              text-sm font-medium text-ink
+              hover:bg-black/5
+              transition
+            "
+          >
+            Κάλεσε τώρα
+          </a>
 
-  <a
-    href="mailto:dimitrismichoudis@gmail.com"
-    className="
-      inline-flex w-full md:w-auto items-center justify-center
-      rounded-xl
-      border border-black/20
-      px-5 py-3
-      text-sm font-medium text-ink
-      hover:bg-black/5
-      transition
-    "
-  >
-    Στείλε email
-  </a>
+          <a
+            href="mailto:dimitrismichoudis@gmail.com"
+            className="
+              inline-flex w-full md:w-auto items-center justify-center
+              rounded-xl
+              border border-black/20
+              px-5 py-3
+              text-sm font-medium text-ink
+              hover:bg-black/5
+              transition
+            "
+          >
+            Στείλε email
+          </a>
 
-  <button
-    type="button"
-    onClick={() => setOpen((v) => !v)}
-    className="
-      inline-flex w-full md:w-auto items-center justify-center
-      rounded-xl
-      bg-ink-strong text-white
-      px-6 py-3.5
-      text-sm font-semibold
-      shadow-md
-      hover:scale-[1.02]
-      hover:opacity-95
-      transition-all
-    "
-    aria-expanded={open}
-    aria-controls="contact-form"
-  >
-    {open ? "Κλείσιμο φόρμας" : "Στείλε μήνυμα"}
-  </button>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="
+              inline-flex w-full md:w-auto items-center justify-center
+              rounded-xl
+              bg-ink-strong text-white
+              px-6 py-3.5
+              text-sm font-semibold
+              shadow-md
+              hover:scale-[1.02]
+              hover:opacity-95
+              transition-all
+            "
+            aria-expanded={open}
+            aria-controls="contact-form"
+          >
+            {open ? "Κλείσιμο φόρμας" : "Στείλε μήνυμα"}
+          </button>
 
-</div>
+        </div>
       </div>
 
       {/* Expandable form */}
