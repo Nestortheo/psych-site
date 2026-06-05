@@ -1,20 +1,50 @@
 
 
-export default function ServiceCard({ title, text, className = "" }) {
+export default function ServiceCard({ title,summary,text,icon, onClick, className = "" }) {
+  const Icon = icon;
   return (
     <div
+      onClick={onClick}
       className={[
-        "h-full w-full rounded-2xl p-6",
-        "border border-[#dcdcd7] bg-[#efefec]",
-        "shadow-sm transition hover:shadow-md hover:-translate-y-1 ",
+        "cursor-pointer",
+        "h-full rounded-2xl p-6",
+        "border border-[#b8a692] bg-[#efefec]",
+        "shadow-sm transition hover:shadow-md hover:-translate-y-5 ",
+        "flex flex-col",
         
+      
         className,
       ].join(" ")}
     >
-      <span className="absolute left-0 top-6 bottom-6 w-1 rounded-full bg-slate-900/10" />
-      <h3 className="text-lg font-semibold text-ink mb-2">{title}</h3>
-      <div className="border-t border-black/10"></div>
-      <p className="text-ink-strong text-sm leading-6 mt-4">{text}</p>
+      <div className="flex gap-6">
+
+        <div className="shrink-0 text-[#b8a692]">
+          <Icon size={40}  />
+        </div>
+
+        <div>
+          <h3 className="font-semibold text-xl">
+            {title}
+          </h3>
+          
+          <p className="mt-4 text-base ">
+            {summary}
+          </p>
+
+        </div>    
+          
+      </div>
+       {/* Push button to bottom */}
+      <button className="mt-auto pt-8 text-left group  cursor-pointer">
+        <span className="inline-flex items-center gap-2">
+          Περισσότερα
+          <span className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </span>
+      </button>
+      
+   
     </div>
   );
 }

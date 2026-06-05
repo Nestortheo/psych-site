@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+
 import dimitrisPhoto from "../images/dimitris-michoudis.jpeg";
 import bannerPhoto from "../images/IMG_9079.jpeg";
 
@@ -16,7 +18,34 @@ import HeroText from "../components/HeroText"
 import { services } from "../data/services";
 import { useEffect } from "react";
 
+
+import{
+  BadgeCheck,
+} from "lucide-react";
+
 export default function Home() {
+
+  //Service Section State
+  const [selectedService, setSelectedService] = useState(null);
+  const serviceDetailsRef = useRef(null);
+
+  //onClick event for service section + scroll
+  const handleServiceClick = (service) => {
+    if (selectedService?.title === service.title) {
+      setSelectedService(null);
+      return;
+    }
+
+    setSelectedService(service);
+
+    setTimeout(() => {
+      serviceDetailsRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 100);
+  };
+ 
   const officePhotos = [
     { src: office1, alt: "Therapy office overview" },
     { src: office2, alt: "Seating area with armchair" },
@@ -151,23 +180,78 @@ export default function Home() {
         <div className={container}>
           <div className={panel}>
             <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες Ψυχοθεραπείας</h2>
-            <div className="h-1 w-16 bg-ink/30  my-8 rounded-full" />
+            <div className="h-1 w-16 bg-ink/30 my-8 rounded-full" />
 
             <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
               Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
             </p>
 
-            <div className="max-w-3xl">
-              <div className="grid gap-6">
+            <div className="max-w-6xl">
+              <div className="grid grid-cols md:grid-cols-3 gap-6">
                 {services.map((s) => (
                   <ServiceCard
                     key={s.title}
                     title={s.title}
+                    summary={s.summary}
                     text={s.text}
-                    className="bg-surface ring-1 ring-black/10 pl-6 relative"
+                    icon={s.icon}
+                    onClick={() => handleServiceClick(s)}
+                    className="bg-surface pl-6 relative"
                   />
                 ))}
               </div>
+              {selectedService && (
+                <div 
+                  ref={serviceDetailsRef}
+                  className="mt-12 rounded-2xl border border-[#b8a692] p-8"
+                >
+
+                  {(() => {
+                    const SelectedIcon = selectedService.icon;
+                    const Tags = selectedService.tags
+
+                    return (
+                      <>
+                        <div className="flex items-center gap-4">
+                          <SelectedIcon
+                            size={40}
+                            className="text-[#b8a692]"
+                          />
+
+                          <h3 className="text-2xl font-semibold">
+                            {selectedService.title}
+                          </h3>
+                        </div>
+
+                        <div className="border-b border-[#b8a692]/50 mt-4" />
+
+                        <p className="mt-6 leading-relaxed">
+                          {selectedService.text}
+                        </p>
+
+                        <p className="mt-6 font-bold">
+                          Πως μπορώ να βοηθήσω;
+                        </p>
+
+                        <div className="mt-6 flex flex-col gap-4">
+                            {Tags.map((tag) => (
+                              <ul
+                                key={tag}
+                                className="text-sm flex gap-2"
+                              >
+                                <span className="text-[#b8a692]"><BadgeCheck size={22}/></span>
+                                <span>{tag}</span>
+                              </ul>
+                            ))}
+                        </div>
+
+
+                      </>
+                    );
+                  })()}
+
+                </div>
+              )}
             </div>
           </div>
         </div>
