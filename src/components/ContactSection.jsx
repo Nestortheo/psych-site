@@ -1,106 +1,143 @@
 import { useState } from "react";
 import ContactForm from "./ContactForm";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageSquare,
+} from "lucide-react";
 
 export default function ContactSection() {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="rounded-3xl border border-[#dcdcd7] bg-surface/55 p-6 shadow-sm sm:p-8">
-      {/* Header + Details (always visible) */}
-      <div className="grid gap-6 grid-cols md:grid-cols-[1.2fr_0.8fr] md:items-start">
-        <div>
-          <h2 className="text-4xl font-semibold text-ink">
-            Επικοινωνία
-          </h2>
-          <p className="mt-2 text-sm text-slate-700 leading-relaxed">
-            Μπορείτε να επικοινωνήσετε τηλεφωνικά ή μέσω email. Αν προτιμάτε, στείλτε μήνυμα μέσω της φόρμας.
-          </p>
 
-          <div className="mt-5 space-y-2 text-sm text-slate-800">
-            <div className="flex items-start gap-2">
-              <span className="w-[75px] font-medium text-slate-900">Τηλέφωνο:</span>
-              <a href="tel:2311829090" className="hover:underline underline-offset-2">
-                231 182 9090
-              </a>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="w-[75px] font-medium text-slate-900">Email:</span>
-              <a href="mailto:dimitrismichoudis@gmail.com" className="hover:underline underline-offset-2">
-                dimitrismichoudis@gmail.com
-              </a>
-            </div>
-            <div className="flex items-start gap-2">
-              <span className="w-[75px] font-medium text-slate-900">Περιοχή:</span>
-              <span>Κομνηνών 23, Θεσσαλονίκη 54624</span>
-            </div>
-            <div className="pt-2 text-xs text-slate-600 italic">
-              Διαθέσιμες συνεδρίες: online & δια ζώσης
-            </div>
-          </div>
-        </div>
+      {/* Heading */}
+      <div className="text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold text-ink">
+          Επικοινωνία
+        </h2>
 
-        {/* Actions */}
-        <div className="flex flex-col gap-3 md:items-end">
+        <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
 
-          <a
-            href="tel:2311829090"
-            className="
-              inline-flex w-full md:w-auto items-center justify-center
-              rounded-xl
-              border border-black/20
-              px-5 py-3
-              text-sm font-medium text-ink
-              hover:bg-black/5
-              transition
-            "
-          >
-            Κάλεσε τώρα
-          </a>
-
-          <a
-            href="mailto:dimitrismichoudis@gmail.com"
-            className="
-              inline-flex w-full md:w-auto items-center justify-center
-              rounded-xl
-              border border-black/20
-              px-5 py-3
-              text-sm font-medium text-ink
-              hover:bg-black/5
-              transition
-            "
-          >
-            Στείλε email
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="
-              inline-flex w-full md:w-auto items-center justify-center
-              rounded-xl
-              bg-ink-strong text-white
-              px-6 py-3.5
-              text-sm font-semibold
-              shadow-md
-              hover:scale-[1.02]
-              hover:opacity-95
-              transition-all
-            "
-            aria-expanded={open}
-            aria-controls="contact-form"
-          >
-            {open ? "Κλείσιμο φόρμας" : "Στείλε μήνυμα"}
-          </button>
-
-        </div>
+        <p className="max-w-2xl mx-auto text-ink-soft leading-relaxed">
+          Επιλέξτε τον τρόπο επικοινωνίας που σας εξυπηρετεί ή στείλτε μήνυμα μέσω της φόρμας.
+        </p>
       </div>
 
-      {/* Expandable form */}
+      {/* Action cards */}
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+
+        <a
+          href="tel:2311829090"
+          className="
+            rounded-2xl border border-[#dcdcd7]
+            p-6 text-center
+            hover:shadow-md
+            transition
+          "
+        >
+          <Phone
+            size={28}
+            className="mx-auto mb-4 text-[#b8a692]"
+          />
+
+          <h3 className="font-semibold">
+            Κάλεσε τώρα
+          </h3>
+
+          <p className="mt-2 text-sm text-slate-600">
+            231 182 9090
+          </p>
+        </a>
+
+        <a
+          href="mailto:dimitrismichoudis@gmail.com"
+          className="
+            rounded-2xl border border-[#dcdcd7]
+            p-6 text-center
+            hover:shadow-md
+            transition
+          "
+        >
+          <Mail
+            size={28}
+            className="mx-auto mb-4 text-[#b8a692]"
+          />
+
+          <h3 className="font-semibold">
+            Στείλε email
+          </h3>
+
+          <p className="mt-2 text-sm text-slate-600">
+            dimitrismichoudis@gmail.com
+          </p>
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="
+            rounded-2xl border border-[#dcdcd7]
+            p-6 text-center
+            hover:shadow-md
+            transition
+          "
+        >
+          <MessageSquare
+            size={28}
+            className="mx-auto mb-4 text-[#b8a692]"
+          />
+
+          <h3 className="font-semibold">
+            {open ? "Κλείσιμο φόρμας" : "Στείλε μήνυμα"}
+          </h3>
+
+          <p className="mt-2 text-sm text-slate-600">
+            Απαντώ το συντομότερο δυνατό.
+          </p>
+        </button>
+
+      </div>
+
+      {/* Details */}
+      <div className="mt-10 border-t border-black/10 pt-8">
+
+        <div className="flex flex-col gap-4 text-sm">
+
+          <div className="flex items-center gap-3">
+            <Phone size={18} className="text-[#b8a692]" />
+            <span>231 182 9090</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Mail size={18} className="text-[#b8a692]" />
+            <span>dimitrismichoudis@gmail.com</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <MapPin size={18} className="text-[#b8a692]" />
+            <span>Κομνηνών 23, Θεσσαλονίκη 54624</span>
+          </div>
+
+          <div className="text-slate-600 italic pt-2">
+            Διαθέσιμες συνεδρίες: online & δια ζώσης
+          </div>
+
+        </div>
+
+      </div>
+
       {open && (
-        <div id="contact-form" className="mt-10 pt-10 border-t border-black/10">
+        <div
+          id="contact-form"
+          className="mt-10 pt-10 border-t border-black/10"
+        >
           <ContactForm compact />
         </div>
       )}
+
     </div>
   );
 }

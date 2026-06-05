@@ -9,6 +9,7 @@ import office3 from "../images/IMG_9081.jpeg";
 import office4 from "../images/IMG_9084.jpeg";
 import office5 from "../images/IMG_9085.jpeg";
 import office6 from "../images/IMG_9092.jpeg"
+import ServiceImage from "../images/Service.png"
 
 
 import ServiceCard from "../components/ServiceCard";
@@ -17,6 +18,7 @@ import ContactSection from "../components/ContactSection";
 import HeroText from "../components/HeroText"
 import { services } from "../data/services";
 import { useEffect } from "react";
+
 
 
 import{
@@ -179,13 +181,21 @@ export default function Home() {
       <section id="services" className={section}>
         <div className={container}>
           <div className={panel}>
-            <h2 className="text-3xl md:text-4xl font-semibold text-ink">Υπηρεσίες Ψυχοθεραπείας</h2>
-            <div className="h-1 w-16 bg-ink/30 my-8 rounded-full" />
+            <div className="text-center mb-12">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#b8a692]">
+                ΥΠΗΡΕΣΙΕΣ ΨΥΧΟΘΕΡΑΠΕΙΑΣ
+              </p>
 
-            <p className="-mt-2 mb-10 max-w-2xl text-center text-ink leading-relaxed">
-              Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
-            </p>
+              <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
 
+              <h2 className="text-3xl md:text-4xl font-semibold text-ink tracking-tight">
+                Θέματα που μπορούμε να δουλέψουμε μαζί.
+              </h2>
+
+              <p className="mt-4 max-w-2xl mx-auto text-ink/80">
+                Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
+              </p>
+            </div>
             <div className="max-w-6xl">
               <div className="grid grid-cols md:grid-cols-3 gap-6">
                 {services.map((s) => (
@@ -225,27 +235,46 @@ export default function Home() {
 
                         <div className="border-b border-[#b8a692]/50 mt-4" />
 
-                        <p className="mt-6 leading-relaxed">
-                          {selectedService.text}
-                        </p>
+                        <div className="mt-6 flex justify-between gap-12">
 
-                        <p className="mt-6 font-bold">
-                          Πως μπορώ να βοηθήσω;
-                        </p>
+                          {/* Left side */}
+                          <div className="flex flex-col">
 
-                        <div className="mt-6 flex flex-col gap-4">
-                            {Tags.map((tag) => (
-                              <ul
-                                key={tag}
-                                className="text-sm flex gap-2"
-                              >
-                                <span className="text-[#b8a692]"><BadgeCheck size={22}/></span>
-                                <span>{tag}</span>
-                              </ul>
-                            ))}
+                            <p className="leading-relaxed">
+                              {selectedService.text}
+                            </p>
+
+                            <p className="mt-8 font-bold">
+                              Πως μπορώ να βοηθήσω;
+                            </p>
+
+                            <div className="mt-6 flex flex-col gap-4">
+                              {Tags.map((tag) => (
+                                <ul
+                                  key={tag}
+                                  className="text-sm flex gap-2"
+                                >
+                                  <span className="text-[#b8a692]">
+                                    <BadgeCheck size={22} />
+                                  </span>
+
+                                  <span>{tag}</span>
+                                </ul>
+                              ))}
+                            </div>
+
+                          </div>
+
+                          {/* Right side image */}
+                          <div className="hidden lg:flex items-end justify-center shrink-0">
+                            <img
+                              src={ServiceImage}
+                              alt=""
+                              className="w-90 opacity-90"
+                            />
+                          </div>
+
                         </div>
-
-
                       </>
                     );
                   })()}
@@ -261,14 +290,17 @@ export default function Home() {
       <section id="office" className={section}>
         <div className={container}>
           <div className={panel}>
-            <h2 className="text-3xl md:text-4xl font-semibold text-ink">Ο χώρος μου</h2>
-            <div className="h-1 w-16 bg-ink/30 my-8 rounded-full" />
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-semibold text-ink">Ο χώρος μου</h2>
 
-            <p className="-mt-2 text-ink-soft max-w-2xl leading-relaxed mb-10">
-              Ο χώρος όπου πραγματοποιούνται οι συνεδρίες.
-            </p>
+              <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
 
-            <OfficeGallery photos={officePhotos} />
+              <p className="-mt-2 text-ink-soft max-w-2xl mx-auto leading-relaxed mb-10">
+                Ο χώρος όπου πραγματοποιούνται οι συνεδρίες.
+              </p>
+
+              <OfficeGallery photos={officePhotos} />
+            </div>
           </div>
         </div>
       </section>
