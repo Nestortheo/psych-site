@@ -8,11 +8,16 @@ export default function ServiceCard({ title,summary,text,icon, onClick, classNam
     <div
       onClick={onClick}
       className={[
-        "cursor-pointer",
-        "h-full rounded-2xl p-6",
-        "border border-[#b8a692] bg-[#efefec]",
-        "shadow-sm transition hover:shadow-md hover:-translate-y-5 ",
-        "flex flex-col",
+         "group cursor-pointer",
+         "h-full rounded-2xl p-6",
+         "border",
+         "bg-[#efefec]",
+         "shadow-sm",
+         "transition-all duration-300",
+         "hover:-translate-y-2",
+         "hover:shadow-md",
+         "hover:border-[#b8a692]",
+         "flex flex-col",
         
       
         className,
@@ -30,9 +35,13 @@ export default function ServiceCard({ title,summary,text,icon, onClick, classNam
             shadow-sm
             shrink-0
             self-center md:self-start
+
+            transition-all duration-300
+            group-hover:scale-105
+            group-hover:bg-[#f5f0ea]
            "
         >
-          <Icon size={36}  className="text-[#c1ae99]"/>
+          <Icon size={36}  className="text-[#c1ae99] "/>
         </div>
 
         <div>
@@ -48,13 +57,14 @@ export default function ServiceCard({ title,summary,text,icon, onClick, classNam
           
       </div>
        {/* Push button to bottom */}
-      <button className="mt-auto pt-8 text-center md:text-left group  cursor-pointer">
+      <button className="mt-auto pt-8 text-left cursor-pointer">
         <span className="inline-flex items-center gap-2 text-[#b8a692] font-semibold">
           Περισσότερα
           <span 
             className="
-              mt-1 
-              transition-transform group-hover:translate-x-1
+              mt-1
+              transition-transform duration-300
+              group-hover:translate-x-2
             "
           >
             <MoveRight />

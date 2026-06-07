@@ -15,16 +15,22 @@ export default function ContactSection() {
 
       {/* Heading */}
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl font-semibold text-ink">
-          Επικοινωνία
+
+        <p className="text-sm tracking-[0.2em] uppercase text-[#b8a692]">
+          ΕΠΙΚΟΙΝΩΝΙΑ
+        </p>
+
+        <div className="mt-4 h-[2px] w-12 bg-[#b8a692] mx-auto" />
+
+        <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-ink">
+          Τρόποι Επικοινωνίας
         </h2>
 
-        <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
-
-        <p className="max-w-2xl mx-auto text-ink-soft leading-relaxed">
-          Επιλέξτε τον τρόπο επικοινωνίας που σας εξυπηρετεί ή στείλτε μήνυμα μέσω της φόρμας.
+        <p className="mt-6 text-ink-soft max-w-2xl mx-auto leading-relaxed">
+          Επιλέξτε τον τρόπο επικοινωνίας που σας εξυπηρετεί και θα λάβετε απάντηση το συντομότερο δυνατό.
         </p>
-      </div>
+
+    </div>
 
       {/* Action cards */}
       <div className="mt-12 grid gap-4 md:grid-cols-3">

@@ -32,21 +32,35 @@ export default function Home() {
   const serviceDetailsRef = useRef(null);
 
   //onClick event for service section + scroll
-  const handleServiceClick = (service) => {
-    if (selectedService?.title === service.title) {
-      setSelectedService(null);
-      return;
-    }
+const handleServiceClick = (service) => {
+  if (selectedService?.title === service.title) {
+    setSelectedService(null);
+    return;
+  }
 
-    setSelectedService(service);
+  setSelectedService(service);
 
-    setTimeout(() => {
+  setTimeout(() => {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      const y =
+        serviceDetailsRef.current.getBoundingClientRect().top +
+        window.pageYOffset -
+        100;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    } else {
       serviceDetailsRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
-    }, 100);
-  };
+    }
+  }, 100);
+};
  
   const officePhotos = [
     { src: office1, alt: "Therapy office overview" },
@@ -186,14 +200,14 @@ export default function Home() {
                 ΥΠΗΡΕΣΙΕΣ ΨΥΧΟΘΕΡΑΠΕΙΑΣ
               </p>
 
-              <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
+              <div className="mt-4 h-[2px] w-12 bg-[#b8a692] mx-auto" />
 
-              <h2 className="text-3xl md:text-4xl font-semibold text-ink tracking-tight">
+              <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-ink">
                 Θέματα που μπορούμε να δουλέψουμε μαζί.
               </h2>
 
-              <p className="mt-4 max-w-2xl mx-auto text-ink/80">
-                Συνεδρίες προσαρμοσμένες στις ανάγκες σας, σε ένα ασφαλές και υποστηρικτικό πλαίσιο.
+              <p className="mt-6 text-ink-soft max-w-2xl mx-auto leading-relaxed">
+                Επιλέξτε μια θεματική για να δείτε περισσότερες πληροφορίες.
               </p>
             </div>
             <div className="max-w-6xl">
@@ -206,7 +220,14 @@ export default function Home() {
                     text={s.text}
                     icon={s.icon}
                     onClick={() => handleServiceClick(s)}
-                    className="bg-surface pl-6 relative"
+                    className={`
+                    bg-surface pl-6 relative
+                    ${
+                      selectedService?.title === s.title
+                        ? "border-[#ab987f] bg-[#ece7e0] shadow-md"
+                        : "border-white"
+                    }
+                  `}
                   />
                 ))}
               </div>
@@ -222,13 +243,13 @@ export default function Home() {
 
                     return (
                       <>
-                        <div className="flex items-center gap-4">
+                        <div className="flex flex-col md:flex-row items-center gap-4">
                           <SelectedIcon
                             size={40}
                             className="text-[#b8a692]"
                           />
 
-                          <h3 className="text-2xl font-semibold">
+                          <h3 className="text-2xl text-center font-semibold">
                             {selectedService.title}
                           </h3>
                         </div>
@@ -290,15 +311,24 @@ export default function Home() {
       <section id="office" className={section}>
         <div className={container}>
           <div className={panel}>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-semibold text-ink">Ο χώρος μου</h2>
+            <div className="text-center">
 
-              <div className="h-[2px] w-12 bg-[#b8a692] mx-auto my-4" />
-
-              <p className="-mt-2 text-ink-soft max-w-2xl mx-auto leading-relaxed mb-10">
-                Ο χώρος όπου πραγματοποιούνται οι συνεδρίες.
+              <p className="text-sm tracking-[0.2em] uppercase text-[#b8a692]">
+                ΧΩΡΟΣ ΣΥΝΕΔΡΙΩΝ
               </p>
 
+              <div className="mt-4 h-[2px] w-12 bg-[#b8a692] mx-auto" />
+
+              <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-ink">
+                Ένας χώρος ασφάλειας και εμπιστοσύνης
+              </h2>
+
+              <p className="mt-6 text-ink-soft max-w-2xl mx-auto leading-relaxed">
+                Ένας σύγχρονος και διακριτικός χώρος στο κέντρο της Θεσσαλονίκης για ατομικές και online συνεδρίες.
+              </p>
+
+            </div>
+            <div className="mt-20">
               <OfficeGallery photos={officePhotos} />
             </div>
           </div>
