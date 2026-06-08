@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ContactForm from "./ContactForm";
 import {
   Phone,
@@ -7,8 +7,34 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+import { useEffect } from "react";
+
 export default function ContactSection() {
   const [open, setOpen] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      const y =
+        formRef.current.getBoundingClientRect().top +
+        window.pageYOffset -
+        80;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    } else {
+      formRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+}, [open]);
 
   return (
     <div className="rounded-3xl border border-[#dcdcd7] bg-surface/55 p-6 shadow-sm sm:p-8">
@@ -137,10 +163,11 @@ export default function ContactSection() {
 
       {open && (
         <div
+          ref={formRef}
           id="contact-form"
           className="mt-10 pt-10 border-t border-black/10"
         >
-          <ContactForm compact />
+          <ContactForm  />
         </div>
       )}
 
