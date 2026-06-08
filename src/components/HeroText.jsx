@@ -5,22 +5,24 @@ export default function HeroText() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-center md:text-left max-w-xl">
+    <div className="text-center max-w-xl">
 
-      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-5">
-        Λίγα λόγια για εμένα
-      </h2>
-
-      <p className="text-sm md:text-base text-ink-strong mb-6 font-medium">
+      <p className="text-sm tracking-[0.2em] uppercase text-[#b8a692]">
         Ψυχολόγος • Συμβουλευτική Ψυχολογία • Θεσσαλονίκη & Online
       </p>
+
+      <div className="mt-4 h-[2px] w-12 bg-[#b8a692] mx-auto" />
+
+      <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-ink">
+        Λίγα λόγια για εμενα
+      </h2>
 
       {/* SHORT INTRO ONLY */}
       <p className="
         text-base md:text-lg 
         text-ink 
         leading-relaxed 
-        mb-6
+        mt-6
       ">
         Ονομάζομαι Δημήτρης Μιχούδης και είμαι ψυχολόγος.
         Σπούδασα Ψυχολογία στο University of Sheffield,

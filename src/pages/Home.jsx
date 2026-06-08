@@ -112,20 +112,25 @@ const handleServiceClick = (service) => {
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface via-surface/50 to-transparent" />
 
           {/* HERO CONTENT */}
-          <div className="
-            absolute inset-0 
-            flex flex-col items-center justify-center 
-            text-center px-6 
-            max-w-2xl mx-auto 
-          ">
-
-            <h1 className="
-              text-white
-              text-3xl sm:text-4xl md:text-5xl 
-              font-semibold 
-              tracking-tight
-            ">
-              Ψυχοθεραπεία στη Θεσσαλονίκη με στόχο την ουσιαστική αλλαγή
+          <div
+            className="
+              absolute inset-0
+              flex flex-col items-center justify-center
+              text-center px-6
+              max-w-2xl mx-auto
+            "
+          >
+            <h1
+              className="
+                text-white
+                text-2xl sm:text-3xl md:text-[2.5rem]
+                font-semibold
+                tracking-tight
+                leading-tight
+              "
+            >
+              Ψυχοθεραπεία στη Θεσσαλονίκη
+              με στόχο την ουσιαστική αλλαγή
             </h1>
 
             <p className="
