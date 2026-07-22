@@ -13,6 +13,18 @@ export default function ContactSection() {
   const [open, setOpen] = useState(false);
   const formRef = useRef(null);
 
+  /*
+  useEffect(() => { 
+    if (!open) return; 
+    console.log("SCROLL EFFECT"); 
+    
+    formRef.current?.scrollIntoView({ 
+      behavior: "smooth", 
+      block: "center",
+    }); 
+  }, [open]);
+  */
+
   useEffect(() => {
     if (!open) return;
 
