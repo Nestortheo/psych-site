@@ -5,7 +5,7 @@ export default function HeroText() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-center max-w-xl">
+    <div className="border text-center max-w-xl mx-auto">
 
       <p className="text-sm tracking-[0.2em] uppercase text-[#b8a692]">
         Ψυχολόγος • Συμβουλευτική Ψυχολογία • Θεσσαλονίκη & Online
@@ -74,7 +74,7 @@ export default function HeroText() {
       )}
 
       {/* CTA */}
-      <div className="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 md:items-center md:justify-center justify-start">
+      <div className="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 md:items-center sm:justify-center justify-start">
 
         <a
           href="#contact"
